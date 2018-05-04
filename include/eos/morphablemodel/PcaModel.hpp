@@ -396,7 +396,7 @@ inline Eigen::MatrixXf normalise_pca_basis(const Eigen::MatrixXf& rescaled_basis
 {
     Eigen::MatrixXf orthonormal_basis(rescaled_basis.rows(),
                                       rescaled_basis.cols()); // empty matrix with the same dimensions
-    const Eigen::VectorXf one_over_sqrt_of_eigenvalues = eigenvalues.array().rsqrt();
+    const Eigen::VectorXf one_over_sqrt_of_eigenvalues = eigenvalues.array().sqrt();
     // "Normalise" the basis: We multiply each eigenvector (i.e. each column) with 1 over the square root of
     // its corresponding eigenvalue
     for (int basis = 0; basis < rescaled_basis.cols(); ++basis)
